@@ -3,6 +3,10 @@
 ## 🌐 Live Game
 **URL**: [https://double-coin-dispatcher.netlify.app](https://double-coin-dispatcher.netlify.app)
 
+## 📚 GitHub Repository
+**Repository**: [https://github.com/simeon-zhelev/double-coin-dispatcher](https://github.com/simeon-zhelev/double-coin-dispatcher)
+**Latest Release**: [v1.0.0](https://github.com/simeon-zhelev/double-coin-dispatcher/releases/tag/v1.0.0)
+
 ## 📊 Admin Dashboard
 **Netlify Admin**: [https://app.netlify.com/projects/double-coin-dispatcher](https://app.netlify.com/projects/double-coin-dispatcher)
 
