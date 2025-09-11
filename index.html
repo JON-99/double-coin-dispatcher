@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Coin Dispatcher - Proof of Concept</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #f39c12;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #ecf0f1;
+        }
+        
+        .game-container {
+            position: relative;
+            margin: 20px;
+            border: 3px solid #f39c12;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        #gameCanvas {
+            display: block;
+            border-radius: 7px;
+            cursor: grab;
+        }
+        
+        #gameCanvas:active {
+            cursor: grabbing;
+        }
+        
+        .ui {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0,0,0,0.4);
+            width: 100%;
+            border-radius: 0 0 7px 7px;
+            font-weight: bold;
+        }
+        
+        .score {
+            font-size: 1.4em;
+            color: #f39c12;
+        }
+        
+        .timer {
+            font-size: 1.4em;
+            color: #e74c3c;
+        }
+        
+        .level {
+            font-size: 1.2em;
+            color: #2ecc71;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+        }
+        
+        .instructions {
+            max-width: 800px;
+            text-align: left;
+            line-height: 1.6;
+        }
+        
+        .instructions h3 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .game-over h2 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .final-score {
+            font-size: 2em;
+            color: #f39c12;
+            margin: 15px 0;
+        }
+
+        .level-selection {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .level-selection h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .level-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .level-btn {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            min-width: 80px;
+        }
+        
+        .level-btn.active {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+        }
+        
+        .level-btn.active:hover {
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.6);
+        }
+        
+        .level-description {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            color: #ecf0f1;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .level-description h5 {
+            color: #f39c12;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .header p { font-size: 1em; }
+            .ui { padding: 10px 15px; }
+            .score, .timer { font-size: 1.2em; }
+            
+            .level-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .level-btn {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚛 Double Coin Dispatcher</h1>
+        <p>Route trucks to the correct docks - Fast & Accurate!</p>
+    </div>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="ui">
+            <div class="score">Score: <span id="scoreValue">0</span></div>
+            <div class="level">Level <span id="levelValue">1</span></div>
+            <div class="timer">Time: <span id="timeValue">120</span>s</div>
+        </div>
+        
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <div class="final-score" id="finalScore">0</div>
+            <p>Great job dispatching those trucks!</p>
+            <button class="btn" onclick="startGame()">Play Again</button>
+            <button class="btn" onclick="showLeaderboard()">Leaderboard</button>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn" onclick="startGame()" id="startBtn">Start Game</button>
+        <button class="btn" onclick="pauseGame()" id="pauseBtn" style="display: none;">Pause</button>
+        <button class="btn" onclick="toggleSound()" id="soundBtn">🔊 Sound ON</button>
+        <button class="btn" onclick="showLeaderboard()">Leaderboard</button>
+        
+        <div class="level-selection">
+            <h4>Select Level:</h4>
+            <div class="level-buttons">
+                <button class="btn level-btn active" onclick="selectLevel(1)" id="level1Btn">Level 1</button>
+                <button class="btn level-btn" onclick="selectLevel(2)" id="level2Btn">Level 2</button>
+                <button class="btn level-btn" onclick="selectLevel(3)" id="level3Btn">Level 3</button>
+            </div>
+        </div>
+        
+        <div class="level-description" id="levelDescription">
+            <h5>Level 1: Basic Operations</h5>
+            <p>• 1 Inbound Dock + 1 Outbound Dock</p>
+            <p>• Perfect for learning the basics!</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <p><strong>Level 1 & 2:</strong></p>
+            <p>🚚 <strong>Inbound Trucks</strong> (Green "IN") need to go to <strong>Inbound Docks</strong> (Left side)</p>
+            <p>🚛 <strong>Outbound Trucks</strong> (Blue "OUT") need to go to <strong>Outbound Docks</strong> (Right side)</p>
+            <p><strong>Level 3:</strong></p>
+            <p>🔍 <strong>SKU Matching!</strong> Match truck cargo to the correct dock:</p>
+            <p>• TIRES trucks → TIRES dock (same color)</p>
+            <p>• RIMS trucks → RIMS dock (same color)</p>
+            <p>• TOOLS trucks → TOOLS dock (same color)</p>
+            <p>📱 <strong>Drag and drop</strong> trucks to the correct dock to earn points!</p>
+            <p>⚡ Speed bonuses for quick dispatching, penalties for mistakes!</p>
+        </div>
+    </div>
+
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+    <script>
+        function toggleSound() {
+            if (window.audioSystem) {
+                const enabled = window.audioSystem.toggle();
+                const btn = document.getElementById('soundBtn');
+                btn.textContent = enabled ? '🔊 Sound ON' : '🔇 Sound OFF';
+            }
+        }
+        
+        function selectLevel(level) {
+            if (game) {
+                game.selectLevel(level);
+                
+                // Update button states
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.getElementById(`level${level}Btn`).classList.add('active');
+                
+                // Update description
+                const descriptions = {
+                    1: {
+                        title: 'Level 1: Basic Operations',
+                        content: '• 1 Inbound Dock + 1 Outbound Dock<br>• Perfect for learning the basics!'
+                    },
+                    2: {
+                        title: 'Level 2: Increased Traffic',
+                        content: '• 2 Inbound Docks + 2 Outbound Docks<br>• More trucks, more challenge!<br>• Faster spawn rates'
+                    },
+                    3: {
+                        title: 'Level 3: SKU Matching',
+                        content: '• 3 Inbound Docks + 3 Outbound Docks<br>• Match trucks to specific tire SKUs!<br>• Different colored docks for different tires'
+                    }
+                };
+                
+                const desc = descriptions[level];
+                const descElement = document.getElementById('levelDescription');
+                descElement.innerHTML = `<h5>${desc.title}</h5><p>${desc.content}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
