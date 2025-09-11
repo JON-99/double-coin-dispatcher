@@ -174,10 +174,46 @@ To deploy updates:
 - ✅ **Custom domain** - Can add your own domain
 - ✅ **Mobile optimized** - Perfect performance on mobile
 
+## 📚 Version Control
+
+The project is version controlled with Git and hosted on GitHub:
+
+**Repository**: [https://github.com/simeon-zhelev/double-coin-dispatcher](https://github.com/simeon-zhelev/double-coin-dispatcher)
+
+### 🏷️ Releases
+- **v1.0.0**: Initial complete release with all 3 levels
+
+### 🔄 Contributing
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+### 📋 Development Workflow
+```bash
+# Clone the repository
+git clone https://github.com/simeon-zhelev/double-coin-dispatcher.git
+
+# Make changes
+# Test locally by opening index.html
+
+# Deploy to Netlify
+./deploy.sh
+
+# Commit and push to GitHub
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
 ## 🚀 Getting Started
 
 ### 🌐 Play Online (Recommended)
 **Live Demo**: [https://double-coin-dispatcher.netlify.app](https://double-coin-dispatcher.netlify.app)
+
+### 📚 Repository
+**GitHub**: [https://github.com/simeon-zhelev/double-coin-dispatcher](https://github.com/simeon-zhelev/double-coin-dispatcher)
 
 ### 💻 Run Locally
 1. Download all files to a folder
