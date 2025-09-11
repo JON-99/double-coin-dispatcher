@@ -1,4 +1,4 @@
-# Double Coin Dispatcher - Proof of Concept
+# Double Coin Dispatcher
 
 A fun and engaging HTML5 casual game where players act as dispatchers at a Double Coin tire warehouse, routing trucks to the correct docks.
 
